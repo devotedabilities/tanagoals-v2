@@ -7,13 +7,12 @@ import { Check, X as Cross } from 'lucide-react';
 // --- Firebase Configuration ---
 // Securely load configuration from Vercel Environment Variables
 const firebaseConfig = {
-  apiKey: "AIzaSyC6HQ7A7utX-lCLqZYQvPVv6JEHD0X1EHQ",
-  authDomain: "tana-goals-v2.firebaseapp.com",
-  projectId: "tana-goals-v2",
-  storageBucket: "tana-goals-v2.firebasestorage.app",
-  messagingSenderId: "1085375039545",
-  appId: "1:1085375039545:web:2e4fa7ab38a9c66a5da5e8",
-  measurementId: "G-WH1EE0BKDB"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 // --- TEMPORARY DEBUGGING CODE ---
