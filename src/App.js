@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, onSnapshot, setDoc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, onSnapshot, setDoc } from 'firebase/firestore'; // Removed getDoc as it wasn't used
 import { getAuth, signInAnonymously, onAuthStateChanged } from 'firebase/auth';
 import { Check, X as Cross } from 'lucide-react';
 
 // --- Firebase Configuration ---
-// This configuration is automatically provided by the environment.
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+// Securely load configuration from Vercel Environment Variables
+const firebaseConfig = {
+ apiKey: "AIzaSyBrsI26QXgKkBAVfwFCUHEH7rKXL2z9Kns",
+  authDomain: "sample-firebase-ai-app-ef773.firebaseapp.com",
+  projectId: "sample-firebase-ai-app-ef773",
+  storageBucket: "sample-firebase-ai-app-ef773.firebasestorage.app",
+  messagingSenderId: "924653634344",
+  appId: "1:924653634344:web:30d4f3aa105d48a669061d
 };
 
-// --- App ID ---
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-progress-tracker';
+// --- Firebase Initialization ---
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
+// Use the app ID from environment variables for consistency
+const appId = process.env.REACT_APP_FIREBASE_APP_ID;
+
+
+// --- Helper Functions & Components ---
+// (The rest of your code, like function getEmoji(...), continues here)
 // --- Firebase Initialization ---
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
