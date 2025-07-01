@@ -26,10 +26,6 @@ const appId = process.env.REACT_APP_FIREBASE_APP_ID;
 
 // --- Helper Functions & Components ---
 // (The rest of your code, like function getEmoji(...), continues here)
-// --- Firebase Initialization ---
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
 
 // --- Helper Functions & Components ---
 
