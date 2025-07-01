@@ -7,12 +7,12 @@ import { Check, X as Cross } from 'lucide-react';
 // --- Firebase Configuration ---
 // Securely load configuration from Vercel Environment Variables
 const firebaseConfig = {
- apiKey: "AIzaSyBrsI26QXgKkBAVfwFCUHEH7rKXL2z9Kns",
+  apiKey: "AIzaSyBrsI26QXgKkBAVfwFCUHEH7rKXL2z9Kns",
   authDomain: "sample-firebase-ai-app-ef773.firebaseapp.com",
   projectId: "sample-firebase-ai-app-ef773",
   storageBucket: "sample-firebase-ai-app-ef773.firebasestorage.app",
   messagingSenderId: "924653634344",
-  appId: "1:924653634344:web:30d4f3aa105d48a669061d
+  appId: "1:924653634344:web:30d4f3aa105d48a669061d"
 };
 
 // --- Firebase Initialization ---
