@@ -16,6 +16,10 @@ const firebaseConfig = {
   measurementId: "G-WH1EE0BKDB"
 };
 
+// --- TEMPORARY DEBUGGING CODE ---
+console.log("My Firebase Config from Vercel:", firebaseConfig);
+// --- END OF DEBUGGING CODE ---
+
 // --- Firebase Initialization ---
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
