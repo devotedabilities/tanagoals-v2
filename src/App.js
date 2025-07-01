@@ -180,24 +180,30 @@ export default function App() {
     // In a real app, you might get this from the URL.
     const trackerId = `tana-financial-tracker-${appId}`;
 
-    useEffect(() => {
-        // Handle user authentication state
+useEffect(() => {
+        console.log("Auth useEffect is running. Setting up listener...");
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            console.log("Auth state has changed. User object is:", user);
             if (user) {
                 // User is signed in.
+                console.log("User is signed in with UID:", user.uid);
                 setUserId(user.uid);
+                setIsLoading(false);
             } else {
-                // User is signed out. Sign them in anonymously.
+                // User is signed out. Try to sign them in anonymously.
+                console.log("No user found. Attempting anonymous sign-in...");
                 try {
                     await signInAnonymously(auth);
+                    console.log("Anonymous sign-in was successful. Auth state will change again.");
+                    // The onAuthStateChanged listener will fire again with the new user,
+                    // which will then set isLoading to false.
                 } catch (error) {
-                    console.error("Anonymous sign-in failed:", error);
+                    console.error("CRITICAL: Anonymous sign-in failed:", error);
+                    setIsLoading(false); // Stop loading even if sign-in fails, to show the error.
                 }
             }
-            setIsLoading(false);
         });
         
-        // Cleanup subscription
         return () => unsubscribe();
     }, []);
     
